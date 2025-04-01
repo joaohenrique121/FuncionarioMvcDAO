@@ -13,10 +13,12 @@ import java.util.Objects;
 public class Funcionarios {
     private int codigo;
     private String nome;
+    private double salario;
 
-    public Funcionarios(int codigo, String nome) {
+    public Funcionarios(int codigo, String nome, double salario) {
         this.codigo = codigo;
         this.nome = nome;
+        this.salario = salario;
     }
 
     public int getCodigo() {
@@ -37,14 +39,23 @@ public class Funcionarios {
 
     @Override
     public String toString() {
-        return codigo + "\n" + nome;
+        return codigo + "\n" + nome + "\n" + salario ;
+    }
+
+    public double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
     }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 29 * hash + this.codigo;
-        hash = 29 * hash + Objects.hashCode(this.nome);
+        int hash = 5;
+        hash = 97 * hash + this.codigo;
+        hash = 97 * hash + Objects.hashCode(this.nome);
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.salario) ^ (Double.doubleToLongBits(this.salario) >>> 32));
         return hash;
     }
 
@@ -63,8 +74,13 @@ public class Funcionarios {
         if (this.codigo != other.codigo) {
             return false;
         }
+        if (Double.doubleToLongBits(this.salario) != Double.doubleToLongBits(other.salario)) {
+            return false;
+        }
         return Objects.equals(this.nome, other.nome);
     }
+
+
     
     
 }

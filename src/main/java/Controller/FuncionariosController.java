@@ -24,13 +24,12 @@ public class FuncionariosController {
     
     public Funcionarios getFuncionario(int codigo) throws IOException{
         FuncionariosDAO fd = new FuncionariosDAO();
-        ArrayList<Funcionarios> funcionarios = fd.ler();
         return fd.buscar(codigo);
     }
     
-    public boolean cadastrar(int codigo, String nome){
+    public boolean cadastrar(int codigo, String nome, double salario){
         FuncionariosDAO fd = new FuncionariosDAO();
-        if(fd.grava(codigo, nome)){
+        if(fd.grava(codigo, nome, salario)){
             return true;
         }
         return false;

@@ -30,7 +30,7 @@ public class List extends javax.swing.JFrame {
         model.setRowCount(0);
         ArrayList<Funcionarios> listfunc = fc.list();
         for(Funcionarios funcionario : listfunc){
-            model.addRow(new Object[]{funcionario.getCodigo(), funcionario.getNome()});
+            model.addRow(new Object[]{funcionario.getCodigo(), funcionario.getNome(), funcionario.getSalario()});
         }
      
     }
@@ -52,20 +52,20 @@ public class List extends javax.swing.JFrame {
 
         funcionarioTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Codigo", "Nome"
+                "Codigo", "Nome", "Salario"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Double.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true
+                false, true, false
             };
 
             public Class getColumnClass(int columnIndex) {

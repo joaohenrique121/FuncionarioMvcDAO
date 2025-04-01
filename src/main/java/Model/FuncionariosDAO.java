@@ -25,8 +25,9 @@ public class FuncionariosDAO {
         while(scan.hasNext()){
             String code = scan.nextLine();
             String nome = scan.nextLine();
+            String salario = scan.nextLine();
             
-            this.listaFuncionarios.add(new Funcionarios(Integer.parseInt(code), nome));
+            this.listaFuncionarios.add(new Funcionarios(Integer.parseInt(code), nome, Double.parseDouble(salario)));
             
             
         }
@@ -45,8 +46,8 @@ public class FuncionariosDAO {
      
     }
     
-    public boolean grava (int code, String nome){
-        return listaFuncionarios.add(new Funcionarios(code, nome));
+    public boolean grava (int code, String nome, double salario){
+        return listaFuncionarios.add(new Funcionarios(code, nome, salario));
     }
     
     public ArrayList<Funcionarios> list(){
